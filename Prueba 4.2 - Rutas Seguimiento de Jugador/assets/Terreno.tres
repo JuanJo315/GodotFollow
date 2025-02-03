@@ -1,0 +1,41 @@
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://o0vvuncq8u6l"]
+
+[ext_resource type="Texture2D" uid="uid://dbsvchyrxgdd4" path="res://assets/TX Tileset Grass.png" id="1_c7pkm"]
+[ext_resource type="Texture2D" uid="uid://cao0matkviyes" path="res://assets/TX Tileset Wall.png" id="2_lgavp"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rm5t7"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+agent_radius = 0.0
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_seb5q"]
+vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
+agent_radius = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yyquf"]
+texture = ExtResource("1_c7pkm")
+texture_region_size = Vector2i(32, 32)
+2:0/next_alternative_id = 2
+2:0/0 = 0
+2:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_rm5t7")
+2:0/1 = 1
+2:0/1/navigation_layer_0/polygon = SubResource("NavigationPolygon_seb5q")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k4hy7"]
+texture = ExtResource("2_lgavp")
+texture_region_size = Vector2i(32, 32)
+6:1/next_alternative_id = 2
+6:1/0 = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+6:1/1 = 1
+6:1/1/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[resource]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
+sources/3 = SubResource("TileSetAtlasSource_yyquf")
+sources/4 = SubResource("TileSetAtlasSource_k4hy7")
